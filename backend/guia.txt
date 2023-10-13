@@ -1,0 +1,5 @@
+MONGO_URI=mongodb+srv://root:juanma4200@cluster0.ehqa6cf.mongodb.net/
+PORT=4000
+NODE_ENV=development
+
+JWT_SECRET=SecretWord
