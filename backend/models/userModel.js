@@ -33,6 +33,10 @@ const UserSchema = mongoose.Schema(
             type: String,
             default: "+312 0000 0000",
         },
+        token: {
+            type: String,
+            default: "+312 0000 0000",
+        },
         description: {
             type: String,
             required: [250, "tell me about yourself"],
@@ -54,9 +58,9 @@ UserSchema.pre("save", async function (next) {
     this.password = await bcrypt.hash(this.password, salt);
 });
 
-// UserSchema.methods.comprobarPassword = async function (passwordFormulario) {
-//     return await bcrypt.compare(passwordFormulario, this.password);
-// };
+UserSchema.methods.comprobarPassword = async function (passwordFormulario) {
+    return await bcrypt.compare(passwordFormulario, this.password);
+};
 
 
 
